@@ -1,8 +1,9 @@
 from database.DB_connect import DBConnect
 from model.regione import Regione
 
+
 class RegioneDAO:
-    
+
     @staticmethod
     def get_regioni() -> list[Regione] | None:
         """
@@ -17,7 +18,9 @@ class RegioneDAO:
             return None
 
         cursor = cnx.cursor(dictionary=True)
-        query = """ ADD YOUR QUERY """ # TODO
+        query = """ SELECT *
+                    FROM regione
+                """
         try:
             cursor.execute(query)
             for row in cursor:
